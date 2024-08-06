@@ -30,24 +30,15 @@ public class DecisionTree<String> {
         return this.root;
     }
     
-    public void preguntar(){
-        Scanner scanner = new Scanner(System.in);
-        DecisionTree<String> actual = this;
-        
-        while(actual.getRoot().esPregunta()){
-            System.out.println(actual.getPregunta() + "(si/no)");
-            
-            String respuesta = (String) scanner.nextLine().trim().toLowerCase();
-            
-            if(respuesta.equals("si")){
-                actual = actual.getRoot().getSi();
-            } else if(respuesta.equals("no")){
-                actual = actual.getRoot().getNo();
-            } else{
-                System.out.println("Digite solo si o no");
-            }
+    public boolean isEmpty(){
+        return this.root == null;
+    }
+    
+    public boolean isLeaf(){
+        if(!this.isEmpty()){
+            return this.root.getSi() == null && this.root.getNo() == null;
         }
         
-        System.out.println("Respuesta: " + actual.getPregunta());
+        return false;
     }
 }

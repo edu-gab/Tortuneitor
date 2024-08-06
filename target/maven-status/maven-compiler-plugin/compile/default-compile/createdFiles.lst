@@ -1,3 +1,5 @@
-module-info.class
 com\mycompany\tortuneitor\App.class
+com\mycompany\tortuneitor\TreeNode.class
+com\mycompany\tortuneitor\DecisionTree.class
+module-info.class
 com\mycompany\tortuneitor\SystemInfo.class
