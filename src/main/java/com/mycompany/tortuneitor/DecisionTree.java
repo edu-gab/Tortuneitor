@@ -18,8 +18,8 @@ public class DecisionTree<String> {
         this.root = null;
     }
     
-    public DecisionTree(String pregunta, boolean esPregunta){
-        this.root = new TreeNode<>(pregunta, esPregunta);
+    public DecisionTree(String pregunta){
+        this.root = new TreeNode<>(pregunta);
     }
     
     public String getPregunta(){

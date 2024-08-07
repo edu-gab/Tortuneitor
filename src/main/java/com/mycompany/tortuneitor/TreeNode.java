@@ -12,13 +12,11 @@ public class TreeNode<String> {
     private String pregunta;
     private DecisionTree<String> si;
     private DecisionTree<String> no;
-    private boolean esPregunta;
 
-    public TreeNode(String pregunta, boolean esPregunta) {
+    public TreeNode(String pregunta) {
         this.pregunta = pregunta;
         this.si = null;
         this.no = null;
-        this.esPregunta = esPregunta;
     }
 
     public String getPregunta() {
@@ -44,14 +42,5 @@ public class TreeNode<String> {
     public void setNo(DecisionTree<String> no) {
         this.no = no;
     }
-
-    public boolean esPregunta() {
-        return esPregunta;
-    }
-
-    public void setPregunta(boolean esPregunta) {
-        this.esPregunta = esPregunta;
-    }
-    
     
 }
