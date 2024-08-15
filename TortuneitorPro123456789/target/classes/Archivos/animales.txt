@@ -1,0 +1,6 @@
+aguila sí SI no no no
+perro no no si no si
+gato no no no no si
+caballo Si no si no si
+raton no no si no no
+topo no no si si si
