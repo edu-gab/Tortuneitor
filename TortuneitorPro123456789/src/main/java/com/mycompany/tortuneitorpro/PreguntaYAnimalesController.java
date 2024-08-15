@@ -15,16 +15,24 @@ import javafx.stage.Stage;
  *
  * @author USUARIO DELL
  */
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+
 public class PreguntaYAnimalesController {
 
     @FXML
     private TextField numeroPreguntasTextField;
 
     @FXML
-    private Label rangoPreguntasLabel;  // Cambiamos a rangoPreguntasLabel para mayor claridad
+    private Label rangoPreguntasLabel;
 
     @FXML
-    private Label animalesLabel;
+    private ListView<String> animalesListView;  // Cambiado a ListView
 
     private int maxPreguntas;
     private List<String> posiblesAnimales;
@@ -37,15 +45,11 @@ public class PreguntaYAnimalesController {
 
     public void setPosiblesAnimales(List<String> animales) {
         this.posiblesAnimales = animales;
-        actualizarAnimalesLabel();
+        actualizarAnimalesListView();
     }
 
-    private void actualizarAnimalesLabel() {
-        StringBuilder animalesText = new StringBuilder("Posibles animales:\n");
-        for (String animal : posiblesAnimales) {
-            animalesText.append("- ").append(animal).append("\n");
-        }
-        animalesLabel.setText(animalesText.toString());
+    private void actualizarAnimalesListView() {
+        animalesListView.setItems(FXCollections.observableArrayList(posiblesAnimales));
     }
 
     @FXML
