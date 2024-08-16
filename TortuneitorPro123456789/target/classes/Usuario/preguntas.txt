@@ -1,15 +1,10 @@
-¿Este animal vive en el agua?
-¿Es este animal un reptil?
-¿Este animal es venenoso?
-¿Es este animal de sangre fría?
-¿Este animal vuela?
-¿Es este animal un herbívoro?
-¿Este animal tiene más de cuatro patas?
-¿Es este animal nocturno?
-¿Este animal tiene caparazón?
-¿Es este animal un ave?
-¿Este animal es un mamífero?
-¿Este animal vive en la selva?
-¿Este animal es doméstico?
-¿Este animal es omnívoro?
-¿Este animal es terrestre?
+¿Es un reptil?
+¿Es omnívoro?
+¿Tiene escamas?
+¿Es un carnívoro?
+¿Puede nadar?
+¿Es un animal nocturno?
+¿Es un animal salvaje?
+¿Tiene cuatro patas?
+¿Vive en climas fríos?
+¿Es un animal de granja?

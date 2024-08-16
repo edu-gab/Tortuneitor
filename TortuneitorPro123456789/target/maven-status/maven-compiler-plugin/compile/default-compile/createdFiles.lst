@@ -1,11 +1,13 @@
-com\mycompany\tortuneitorpro\TreeNode.class
+com\mycompany\tortuneitorpro\AgregarAnimalController.class
+com\mycompany\tortuneitorpro\ResultadosController.class
 com\mycompany\tortuneitorpro\SecondaryController.class
-com\mycompany\tortuneitorpro\App.class
-com\mycompany\tortuneitorpro\PrimaryController.class
 module-info.class
 com\mycompany\tortuneitorpro\GameControllerUsuario.class
+com\mycompany\tortuneitorpro\GameController.class
+com\mycompany\tortuneitorpro\TreeNode.class
+com\mycompany\tortuneitorpro\App.class
+com\mycompany\tortuneitorpro\PrimaryController.class
 com\mycompany\tortuneitorpro\DecisionTree.class
 com\mycompany\tortuneitorpro\SubirArchivosController.class
 com\mycompany\tortuneitorpro\Animal.class
-com\mycompany\tortuneitorpro\GameController.class
 com\mycompany\tortuneitorpro\PreguntaYAnimalesController.class

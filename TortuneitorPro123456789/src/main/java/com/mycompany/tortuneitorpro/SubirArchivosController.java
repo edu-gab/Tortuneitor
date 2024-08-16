@@ -137,14 +137,24 @@ public class SubirArchivosController {
     }
 
     private int contarPreguntasDisponibles(String path) {
+        int count = 0;
         try {
             Path archivoPreguntas = Paths.get(path);
-            return (int) Files.lines(archivoPreguntas).count();
+            try (BufferedReader reader = Files.newBufferedReader(archivoPreguntas)) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    line = line.trim();  // Añade esta línea
+                    if (!line.isEmpty()) {  // Añade esta línea
+                        count++;
+                    }
+                }
+            }
         } catch (IOException e) {
             mostrarError("No se pudo leer el archivo de preguntas.");
-            return 0;
         }
+        return count;
     }
+
     
     private List<String> obtenerPosiblesAnimales(String filePath) {
         List<String> animales = new ArrayList<>();

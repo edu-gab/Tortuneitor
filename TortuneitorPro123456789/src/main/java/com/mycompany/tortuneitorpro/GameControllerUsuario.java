@@ -4,12 +4,17 @@
  */
 package com.mycompany.tortuneitorpro;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,34 +61,27 @@ public class GameControllerUsuario {
     }
 
     private String normalizeResponse(String response) {
-        // Convertir la respuesta a minúsculas y eliminar acentos
         response = response.toLowerCase();
-
-        // Reemplazar caracteres acentuados por sus equivalentes sin acento
         response = response.replace("á", "a")
                            .replace("é", "e")
                            .replace("í", "i")
                            .replace("ó", "o")
                            .replace("ú", "u");
 
-        // Si la respuesta es afirmativa, devolver "si"
         if (response.equals("si") || response.equals("sí")) {
             return "si";
         }
-        // Si la respuesta es negativa, devolver "no"
         if (response.equals("no")) {
             return "no";
         }
-
-        // Si no es ni "si" ni "no", devolver la respuesta original (esto depende de tu lógica)
         return response;
     }
 
-    
     public void startGame(int numQuestions) {
         this.maxQuestions = numQuestions;
         this.questionsAsked = 0;
         preguntasYRespuestas.clear();
+        resetButtonColors();
         try {
             String questionsFilePath = "src/main/resources/Usuario/preguntas.txt";
             String animalsFilePath = "src/main/resources/Usuario/animales.txt";
@@ -123,10 +121,8 @@ public class GameControllerUsuario {
             return;
         }
 
-        // Guardar la pregunta actual y la respuesta
         preguntasYRespuestas.add("Pregunta: " + currentNode.getPregunta() + " - Respuesta: " + respuestaActual);
 
-        // Avanzar al siguiente nodo dependiendo de la respuesta actual
         if (respuestaActual.equals("si")) {
             currentNode = currentNode.getSi();
         } else if (respuestaActual.equals("no")) {
@@ -135,13 +131,22 @@ public class GameControllerUsuario {
 
         questionsAsked++;
 
-        // Comprobar si se llegó a una hoja o si se alcanzó el límite de preguntas
-        if (decisionTree.isLeaf(currentNode) || questionsAsked >= maxQuestions) {
-            mostrarResultado();
+        if (questionsAsked >= maxQuestions || decisionTree.isLeaf(currentNode)) {
+            try {
+                mostrarResultado();
+            } catch (IOException e) {
+                showError("Error mostrando los resultados.");
+            }
         } else {
             resetButtonColors();
             updatePreguntaLabel();
         }
+    }
+
+    private void resetButtonColors() {
+        siButton.setStyle(null);
+        noButton.setStyle(null);
+        respuestaActual = null;
     }
 
     private void updatePreguntaLabel() {
@@ -152,34 +157,22 @@ public class GameControllerUsuario {
         }
     }
 
-    private void mostrarResultado() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Resultado");
+    @FXML
+    private void mostrarResultado() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("resultados.fxml"));
+        Parent root = loader.load();
+        ResultadosController controller = loader.getController();
 
-        StringBuilder resultado = new StringBuilder();
-        for (String preguntaYRespuesta : preguntasYRespuestas) {
-            resultado.append(preguntaYRespuesta).append("\n");
-        }
+        String archivoDestino = "src/main/resources/Usuario/animales.txt"; // Define aquí la ruta del archivo de destino
 
-        List<String> posiblesAnimales = decisionTree.getPossibleAnimals(currentNode);
+        controller.setResultados(decisionTree.getPossibleAnimals(currentNode), preguntasYRespuestas, archivoDestino);
 
-        if (posiblesAnimales.isEmpty()) {
-            resultado.append("\nLo siento, no contamos con un animal que cumpla esas características.");
-        } else if (posiblesAnimales.size() == 1) {
-            resultado.append("\n¡El animal es: ").append(posiblesAnimales.get(0)).append("!");
-        } else {
-            resultado.append("\nLos posibles animales son: ").append(String.join(", ", posiblesAnimales));
-        }
-
-        alert.setContentText(resultado.toString());
-        alert.showAndWait();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Resultados");
+        stage.showAndWait();
     }
 
-    private void resetButtonColors() {
-        siButton.setStyle(null);
-        noButton.setStyle(null);
-        respuestaActual = null;
-    }
 
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -193,28 +186,36 @@ public class GameControllerUsuario {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                questions.add(line.trim());
+                line = line.trim();  // Añade esta línea
+                if (!line.isEmpty()) {  // Añade esta línea
+                    questions.add(line);
+                }
             }
         }
         return questions;
     }
+
 
     private List<Animal> loadAnimals(String filePath, List<String> questions) throws IOException {
         List<Animal> animals = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(" ");
-                if (parts.length == questions.size() + 1) {
-                    String name = parts[0].trim();
-                    List<String> responses = new ArrayList<>();
-                    for (int i = 1; i < parts.length; i++) {
-                        responses.add(normalizeResponse(parts[i].trim()));
+                line = line.trim();  // Añade esta línea
+                if (!line.isEmpty()) {  // Añade esta línea
+                    String[] parts = line.split(" ");
+                    if (parts.length == questions.size() + 1) {
+                        String name = parts[0].trim();
+                        List<String> responses = new ArrayList<>();
+                        for (int i = 1; i < parts.length; i++) {
+                            responses.add(normalizeResponse(parts[i].trim()));
+                        }
+                        animals.add(new Animal(name, responses));
                     }
-                    animals.add(new Animal(name, responses));
                 }
             }
         }
         return animals;
     }
+
 }

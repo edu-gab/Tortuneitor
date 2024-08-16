@@ -1,5 +1,7 @@
 ¿Tiene plumas?
 ¿Puede volar?
+
 ¿Es doméstico?
+
 ¿Vive en el agua?
 ¿Es un mamífero?

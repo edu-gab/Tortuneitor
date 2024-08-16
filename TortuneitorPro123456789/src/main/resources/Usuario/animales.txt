@@ -1,15 +1,16 @@
-Delfín sí No NO no no no no no no no si no no si si
-Cocodrilo no SI no si no no no no no no no no no si si
-Serpiente no SÍ si si no no no si no no no no no no no
-Murciélago no no no no si no no si no no si no si no si
-Tortuga no no no si no no no no si no no no no si si
-Elefante no no no no no si no no no no si si no si si
-Águila no no no no si no no no no si no no no si si
-León no Si no no no no no si no no si si no si si
-Tarántula no no si no no no si si no no no no no no si
-Rana no no si si no no no no no no no no no no no
-Gato no Sí no no no no no si no no si no si si si
-Pato no no no no si no no no no si no no no no no
-Pingüino no no no si no no no no no si no no no no no
-Zorro no si no no no no no si no no si si no si si
-Cobra no si si si no no no si no no no no no no no
+leon no no no si si si si si no no
+oso_polar no si no si si no si si si no
+tortuga si si si no si no si si no no
+jirafa no no no no no no si si no no
+gallina no si no no no no no no no si
+cocodrilo si no si si si no si si no no
+cabra no no no no si no no si no si
+elefante no no no no si no si si no no
+pez_payaso no si si no si no si no no no
+caballo no no no no si no no si no si
+zorro no si no si si si si si si no
+pinguino no no no si si no si no si no
+tigre no no no si si si si si no no
+conejo no no no no no no no si no si
+
+caso1 no no no no no no no no no no

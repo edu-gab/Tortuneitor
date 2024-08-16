@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.ResultadosController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" spacing="15.0">
+            <Label fx:id="resultadoLabel" text="Resultados" wrapText="true" />
+            
+            <!-- ListView para mostrar posibles animales -->
+            <ListView fx:id="animalesListView" prefHeight="150.0" prefWidth="300.0" visible="false" />
+
+            <!-- ListView para mostrar el historial de preguntas y respuestas -->
+            <Label text="Historial de preguntas:" wrapText="true" />
+            <ListView fx:id="historialListView" prefHeight="150.0" prefWidth="300.0" />
+
+            <!-- Botones -->
+            <HBox alignment="CENTER" spacing="10.0" layoutY="300.0">
+                <Button fx:id="finalizarButton" text="Finalizar" onAction="#finalizar" />
+                <Button fx:id="jugarDeNuevoButton" text="Jugar de Nuevo" onAction="#jugarDeNuevo" />
+                <Button fx:id="agregarAnimalButton" text="Agregar Nuevo Animal" onAction="#agregarNuevoAnimal" visible="false" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
+

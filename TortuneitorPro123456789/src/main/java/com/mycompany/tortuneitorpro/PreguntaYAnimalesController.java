@@ -4,17 +4,6 @@
  */
 package com.mycompany.tortuneitorpro;
 
-import java.util.List;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-/**
- *
- * @author USUARIO DELL
- */
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -22,6 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
+import java.util.List;
+import java.util.stream.Collectors;
+/**
+ *
+ * @author USUARIO DELL
+ */
 
 public class PreguntaYAnimalesController {
 
@@ -49,8 +44,14 @@ public class PreguntaYAnimalesController {
     }
 
     private void actualizarAnimalesListView() {
-        animalesListView.setItems(FXCollections.observableArrayList(posiblesAnimales));
+        // Filtrar animales para no incluir líneas vacías
+        List<String> animalesFiltrados = posiblesAnimales.stream()
+            .filter(animal -> !animal.trim().isEmpty())
+            .collect(Collectors.toList());
+
+        animalesListView.setItems(FXCollections.observableArrayList(animalesFiltrados));
     }
+
 
     @FXML
     private void confirmar() {
