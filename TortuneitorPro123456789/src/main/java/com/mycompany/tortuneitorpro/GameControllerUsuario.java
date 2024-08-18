@@ -21,6 +21,7 @@ import java.util.List;
 
 public class GameControllerUsuario {
 
+    
     @FXML
     private Label preguntaLabel;
     @FXML
@@ -29,6 +30,8 @@ public class GameControllerUsuario {
     private Button siButton;
     @FXML
     private Button noButton;
+    @FXML
+    private Button regresarButton;
 
     private DecisionTree decisionTree;
     private TreeNode currentNode;
@@ -36,6 +39,7 @@ public class GameControllerUsuario {
     private int maxQuestions;
     private String respuestaActual;
     private List<String> preguntasYRespuestas;
+    private List<TreeNode> nodoHistorial = new ArrayList<>();
 
     @FXML
     public void initialize() {
@@ -55,58 +59,34 @@ public class GameControllerUsuario {
             }
 
             updatePreguntaLabel();
+            regresarButton.setDisable(true); // Deshabilitar "Regresar" al comienzo
         } catch (IOException e) {
             showError("Error cargando los archivos de preguntas o animales.");
         }
-    }
-
-    private String normalizeResponse(String response) {
-        response = response.toLowerCase();
-        response = response.replace("á", "a")
-                           .replace("é", "e")
-                           .replace("í", "i")
-                           .replace("ó", "o")
-                           .replace("ú", "u");
-
-        if (response.equals("si") || response.equals("sí")) {
-            return "si";
-        }
-        if (response.equals("no")) {
-            return "no";
-        }
-        return response;
     }
 
     public void startGame(int numQuestions) {
         this.maxQuestions = numQuestions;
         this.questionsAsked = 0;
         preguntasYRespuestas.clear();
+        nodoHistorial.clear();
         resetButtonColors();
-        try {
-            String questionsFilePath = "src/main/resources/Usuario/preguntas.txt";
-            String animalsFilePath = "src/main/resources/Usuario/animales.txt";
-            List<String> questions = loadQuestions(questionsFilePath);
-            List<Animal> animals = loadAnimals(animalsFilePath, questions);
-            decisionTree.loadTreeFromQuestionsAndAnimals(questions, animals);
-            currentNode = decisionTree.getRoot();
-            updatePreguntaLabel();
-        } catch (IOException e) {
-            showError("Error cargando los archivos de preguntas o animales.");
-        }
+        currentNode = decisionTree.getRoot();
+        updatePreguntaLabel();
     }
 
     @FXML
     private void handleSi() {
         respuestaActual = "si";
         siButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
-        noButton.setStyle(null);
+        noButton.setStyle(""); // Resetea el color del botón "No"
     }
 
     @FXML
     private void handleNo() {
         respuestaActual = "no";
         noButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
-        siButton.setStyle(null);
+        siButton.setStyle(""); // Resetea el color del botón "Sí"
     }
 
     @FXML
@@ -116,11 +96,7 @@ public class GameControllerUsuario {
             return;
         }
 
-        if (respuestaActual == null) {
-            showError("Por favor, selecciona una respuesta antes de continuar.");
-            return;
-        }
-
+        nodoHistorial.add(currentNode);  // Almacenar el nodo actual en el historial
         preguntasYRespuestas.add("Pregunta: " + currentNode.getPregunta() + " - Respuesta: " + respuestaActual);
 
         if (respuestaActual.equals("si")) {
@@ -140,17 +116,38 @@ public class GameControllerUsuario {
         } else {
             resetButtonColors();
             updatePreguntaLabel();
+            regresarButton.setDisable(false); // Habilitar "Regresar" después de la primera pregunta
+        }
+    }
+
+    @FXML
+    private void handleRegresar() {
+        if (questionsAsked > 0) {
+            currentNode = retrocederEnArbol(); // Método que retrocede en el árbol de decisiones
+            preguntaLabel.setText(currentNode.getPregunta());
+            respuestaActual = null;
+            resetButtonColors();
+            questionsAsked--;
+        }
+    }
+
+    private TreeNode retrocederEnArbol() {
+        if (!nodoHistorial.isEmpty()) {
+            TreeNode previo = nodoHistorial.remove(nodoHistorial.size() - 1);
+            preguntasYRespuestas.remove(preguntasYRespuestas.size() - 1); // Remover la última respuesta del historial
+            return previo;
+        } else {
+            return currentNode; // Si no hay historial, quedarse en el nodo actual
         }
     }
 
     private void resetButtonColors() {
-        siButton.setStyle(null);
-        noButton.setStyle(null);
-        respuestaActual = null;
+        siButton.setStyle(""); 
+        noButton.setStyle(""); 
     }
 
     private void updatePreguntaLabel() {
-        if (currentNode != null && !decisionTree.isLeaf(currentNode)) {
+        if (currentNode != null) {
             preguntaLabel.setText(currentNode.getPregunta());
         } else {
             preguntaLabel.setText("No hay más preguntas.");
@@ -173,7 +170,6 @@ public class GameControllerUsuario {
         stage.showAndWait();
     }
 
-
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -186,8 +182,8 @@ public class GameControllerUsuario {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                line = line.trim();  // Añade esta línea
-                if (!line.isEmpty()) {  // Añade esta línea
+                line = line.trim();
+                if (!line.isEmpty()) {
                     questions.add(line);
                 }
             }
@@ -195,14 +191,13 @@ public class GameControllerUsuario {
         return questions;
     }
 
-
     private List<Animal> loadAnimals(String filePath, List<String> questions) throws IOException {
         List<Animal> animals = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                line = line.trim();  // Añade esta línea
-                if (!line.isEmpty()) {  // Añade esta línea
+                line = line.trim();
+                if (!line.isEmpty()) {
                     String[] parts = line.split(" ");
                     if (parts.length == questions.size() + 1) {
                         String name = parts[0].trim();
@@ -218,4 +213,20 @@ public class GameControllerUsuario {
         return animals;
     }
 
+    private String normalizeResponse(String response) {
+        response = response.toLowerCase();
+        response = response.replace("á", "a")
+                           .replace("é", "e")
+                           .replace("í", "i")
+                           .replace("ó", "o")
+                           .replace("ú", "u");
+
+        if (response.equals("si") || response.equals("sí")) {
+            return "si";
+        }
+        if (response.equals("no")) {
+            return "no";
+        }
+        return response;
+    }
 }

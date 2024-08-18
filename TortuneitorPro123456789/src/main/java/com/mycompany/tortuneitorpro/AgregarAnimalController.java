@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
@@ -28,9 +29,13 @@ public class AgregarAnimalController {
 
     @FXML
     private Button siButton;
+    
 
     @FXML
     private Button noButton;
+    
+    @FXML
+    private Button regresarButton;
 
     private List<String> preguntas;
     private List<String> respuestas = new ArrayList<>();
@@ -38,16 +43,44 @@ public class AgregarAnimalController {
     private String archivoDestino;
     private boolean animalAgregado = false; 
     private String nuevoAnimal;
+    
+    private void resetButtonColors() {
+        siButton.setStyle(""); 
+        noButton.setStyle(""); 
+    }
 
-    public void setPreguntas(List<String> preguntas, String archivoDestino) {
-        this.preguntas = preguntas;
-        this.archivoDestino = archivoDestino;
-        if (!preguntas.isEmpty()) {
+    @FXML
+    private void handleRegresar() {
+        if (currentIndex > 0) {
+            currentIndex--;
             preguntaLabel.setText(preguntas.get(currentIndex));
+            respuestas.remove(respuestas.size() - 1);
+            siButton.setDisable(false);
+            noButton.setDisable(false);
+            siButton.setVisible(true);
+            noButton.setVisible(true);
+        }
+    }
+
+    
+    public void setPreguntas(List<String> preguntas, String archivoDestino) {
+        // Filtrar las preguntas para eliminar las líneas vacías
+        this.preguntas = preguntas.stream()
+                                  .filter(pregunta -> pregunta != null && !pregunta.trim().isEmpty())
+                                  .collect(Collectors.toList());
+
+        this.archivoDestino = archivoDestino;
+
+        if (!this.preguntas.isEmpty()) {
+            preguntaLabel.setText(this.preguntas.get(currentIndex));
+            if (currentIndex == 0) {
+                regresarButton.setDisable(true); // Deshabilitar "Regresar" si es la primera pregunta
+            }
         } else {
             preguntaLabel.setText("No hay más preguntas.");
             siButton.setDisable(true);
             noButton.setDisable(true);
+            regresarButton.setDisable(true);
         }
     }
 
@@ -58,12 +91,14 @@ public class AgregarAnimalController {
             currentIndex++;
             if (currentIndex < preguntas.size()) {
                 preguntaLabel.setText(preguntas.get(currentIndex));
+                regresarButton.setDisable(false); // Habilitar "Regresar" después de la primera pregunta
             } else {
                 preguntaLabel.setText("No hay más preguntas.");
                 siButton.setDisable(true);
                 noButton.setDisable(true);
                 siButton.setVisible(false);
                 noButton.setVisible(false);
+                regresarButton.setDisable(true); // Deshabilitar "Regresar" al final
             }
         }
     }
@@ -75,15 +110,18 @@ public class AgregarAnimalController {
             currentIndex++;
             if (currentIndex < preguntas.size()) {
                 preguntaLabel.setText(preguntas.get(currentIndex));
+                regresarButton.setDisable(false); // Habilitar "Regresar" después de la primera pregunta
             } else {
                 preguntaLabel.setText("No hay más preguntas.");
                 siButton.setDisable(true);
                 noButton.setDisable(true);
                 siButton.setVisible(false);
                 noButton.setVisible(false);
+                regresarButton.setDisable(true); // Deshabilitar "Regresar" al final
             }
         }
     }
+
 
     @FXML
     private void handleAgregar() {
@@ -129,4 +167,3 @@ public class AgregarAnimalController {
         alert.showAndWait();
     }
 }
-

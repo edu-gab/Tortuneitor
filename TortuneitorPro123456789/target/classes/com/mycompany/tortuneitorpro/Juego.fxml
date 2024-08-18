@@ -12,7 +12,9 @@
         <HBox layoutX="50.0" layoutY="150.0" spacing="10">
             <Button fx:id="siButton" text="Sí" onAction="#handleSi" />
             <Button fx:id="noButton" text="No" onAction="#handleNo" />
+            <Button fx:id="regresarButton" text="Regresar" onAction="#handleRegresar" />
         </HBox>
+
         <Button fx:id="siguienteButton" layoutX="200.0" layoutY="250.0" mnemonicParsing="false" onAction="#siguientePregunta" text="Siguiente" />
     </children>
 </AnchorPane>
