@@ -30,12 +30,14 @@ public class AgregarAnimalController {
     @FXML
     private Button siButton;
     
-
     @FXML
     private Button noButton;
     
     @FXML
     private Button regresarButton;
+
+    @FXML
+    private Button siguienteButton; // Botón para avanzar a la siguiente pregunta
 
     private List<String> preguntas;
     private List<String> respuestas = new ArrayList<>();
@@ -43,7 +45,8 @@ public class AgregarAnimalController {
     private String archivoDestino;
     private boolean animalAgregado = false; 
     private String nuevoAnimal;
-    
+    private String respuestaActual;
+
     private void resetButtonColors() {
         siButton.setStyle(""); 
         noButton.setStyle(""); 
@@ -55,14 +58,19 @@ public class AgregarAnimalController {
             currentIndex--;
             preguntaLabel.setText(preguntas.get(currentIndex));
             respuestas.remove(respuestas.size() - 1);
+            resetButtonColors(); // Restablecer colores cuando se regresa
             siButton.setDisable(false);
             noButton.setDisable(false);
             siButton.setVisible(true);
             noButton.setVisible(true);
+            siguienteButton.setDisable(true); // Deshabilitar el botón "Siguiente" al regresar
+
+            if (currentIndex == 0) {
+                regresarButton.setDisable(true); // Deshabilitar "Regresar" si es la primera pregunta
+            }
         }
     }
 
-    
     public void setPreguntas(List<String> preguntas, String archivoDestino) {
         // Filtrar las preguntas para eliminar las líneas vacías
         this.preguntas = preguntas.stream()
@@ -80,37 +88,37 @@ public class AgregarAnimalController {
             preguntaLabel.setText("No hay más preguntas.");
             siButton.setDisable(true);
             noButton.setDisable(true);
+            siguienteButton.setDisable(true);
             regresarButton.setDisable(true);
         }
     }
 
     @FXML
     private void handleSi() {
-        if (currentIndex < preguntas.size()) {
-            respuestas.add("si");
-            currentIndex++;
-            if (currentIndex < preguntas.size()) {
-                preguntaLabel.setText(preguntas.get(currentIndex));
-                regresarButton.setDisable(false); // Habilitar "Regresar" después de la primera pregunta
-            } else {
-                preguntaLabel.setText("No hay más preguntas.");
-                siButton.setDisable(true);
-                noButton.setDisable(true);
-                siButton.setVisible(false);
-                noButton.setVisible(false);
-                regresarButton.setDisable(true); // Deshabilitar "Regresar" al final
-            }
-        }
+        respuestaActual = "si";
+        siButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
+        noButton.setStyle(""); // Restablecer el color del botón "No"
+        siguienteButton.setDisable(false); // Habilitar el botón "Siguiente"
     }
 
     @FXML
     private void handleNo() {
-        if (currentIndex < preguntas.size()) {
-            respuestas.add("no");
+        respuestaActual = "no";
+        noButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+        siButton.setStyle(""); // Restablecer el color del botón "Sí"
+        siguienteButton.setDisable(false); // Habilitar el botón "Siguiente"
+    }
+
+    @FXML
+    private void handleSiguiente() {
+        if (respuestaActual != null) {
+            respuestas.add(respuestaActual);
             currentIndex++;
             if (currentIndex < preguntas.size()) {
                 preguntaLabel.setText(preguntas.get(currentIndex));
-                regresarButton.setDisable(false); // Habilitar "Regresar" después de la primera pregunta
+                resetButtonColors(); // Restablecer los colores de los botones para la siguiente pregunta
+                siguienteButton.setDisable(true); // Deshabilitar el botón "Siguiente" hasta que se seleccione "Sí" o "No"
+                regresarButton.setDisable(false); // Habilitar "Regresar" cuando se avanza a la siguiente pregunta
             } else {
                 preguntaLabel.setText("No hay más preguntas.");
                 siButton.setDisable(true);
@@ -118,10 +126,12 @@ public class AgregarAnimalController {
                 siButton.setVisible(false);
                 noButton.setVisible(false);
                 regresarButton.setDisable(true); // Deshabilitar "Regresar" al final
+                siguienteButton.setDisable(true); // Deshabilitar "Siguiente" al final
             }
+        } else {
+            showError("Por favor, seleccione una respuesta antes de continuar.");
         }
     }
-
 
     @FXML
     private void handleAgregar() {

@@ -59,6 +59,7 @@ public class GameController {
 
             updatePreguntaLabel();
             regresarButton.setDisable(true); // Deshabilitar "Regresar" al comienzo
+            siguienteButton.setDisable(true); // Deshabilitar "Siguiente" al comienzo hasta que se seleccione una opción
         } catch (IOException e) {
             showError("Error cargando los archivos de preguntas o animales.");
         }
@@ -72,26 +73,30 @@ public class GameController {
         resetButtonColors();
         currentNode = decisionTree.getRoot();
         updatePreguntaLabel();
+        siguienteButton.setDisable(true); // Deshabilitar "Siguiente" hasta que se seleccione una opción
+        regresarButton.setDisable(true); // Deshabilitar "Regresar" al inicio
     }
 
     @FXML
     private void handleSi() {
         respuestaActual = "si";
         siButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
-        noButton.setStyle(""); // Resetea el color del botón "No"
+        noButton.setStyle(""); // Restablecer el color del botón "No"
+        siguienteButton.setDisable(false); // Habilitar el botón "Siguiente"
     }
 
     @FXML
     private void handleNo() {
         respuestaActual = "no";
         noButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
-        siButton.setStyle(""); // Resetea el color del botón "Sí"
+        siButton.setStyle(""); // Restablecer el color del botón "Sí"
+        siguienteButton.setDisable(false); // Habilitar el botón "Siguiente"
     }
 
     @FXML
     private void siguientePregunta() {
-        if (currentNode == null) {
-            showError("No hay más preguntas disponibles.");
+        if (respuestaActual == null) {
+            showError("Por favor, seleccione una respuesta antes de continuar.");
             return;
         }
 
@@ -115,6 +120,7 @@ public class GameController {
         } else {
             resetButtonColors();
             updatePreguntaLabel();
+            siguienteButton.setDisable(true); // Deshabilitar "Siguiente" hasta que se seleccione una opción
             regresarButton.setDisable(false); // Habilitar "Regresar" después de la primera pregunta
         }
     }
@@ -126,7 +132,12 @@ public class GameController {
             preguntaLabel.setText(currentNode.getPregunta());
             respuestaActual = null;
             resetButtonColors();
+            siguienteButton.setDisable(true); // Deshabilitar "Siguiente" hasta que se seleccione una opción
             questionsAsked--;
+
+            if (questionsAsked == 0) {
+                regresarButton.setDisable(true); // Deshabilitar "Regresar" si es la primera pregunta
+            }
         }
     }
 
@@ -229,3 +240,4 @@ public class GameController {
         return response;
     }
 }
+

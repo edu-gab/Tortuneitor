@@ -4,8 +4,3 @@ gato no no si no si
 tigre no no no no si
 Cacatua Si no si no no
 rana no no no si no
-Paloma si si no no si
-casoEX2 si si si si si
-palo si no si no no
-caso_5 si si si no si
-caso6 no no no no no

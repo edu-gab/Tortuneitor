@@ -17,8 +17,8 @@
                 <Button fx:id="siButton" text="Sí" onAction="#handleSi" />
                 <Button fx:id="noButton" text="No" onAction="#handleNo" />
                 <Button fx:id="regresarButton" text="Regresar" onAction="#handleRegresar" />
+                <Button fx:id="siguienteButton" text="Siguiente" onAction="#handleSiguiente" disable="true"/> <!-- Nuevo botón "Siguiente" -->
             </HBox>
-
             <Button text="Agregar" onAction="#handleAgregar" />
         </VBox>
     </children>
