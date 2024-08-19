@@ -5,78 +5,146 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" style="-fx-background-color: #000000; -fx-background-size: cover; -fx-background-position: center;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.PrimaryController">
    <children>
-      <VBox prefHeight="535.0" prefWidth="809.0" style="-fx-background-size: cover; -fx-background-position: center;">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="812.0" text="BIENVENIDO A TORTUNEITOR!!" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="OCR A Extended" size="36.0" />
-               </font>
-               <effect>
-                  <Bloom />
-               </effect>
-            </Label>
-            <ImageView fitHeight="486.0" fitWidth="811.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Imagenes/Fondo1.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
-      <GridPane layoutX="285.0" layoutY="377.0" prefHeight="79.0" prefWidth="524.0" style="-fx-background-size: cover; -fx-background-position: center;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="111.66668701171875" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.33331298828125" minWidth="10.0" prefWidth="172.33331298828125" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="129.0" style="-fx-background-color: #000000;" text="NOMBRE:" textFill="#fff9f9" wrapText="true">
-               <font>
-                  <Font name="OCR A Extended" size="18.0" />
-               </font>
-               <effect>
-                  <Bloom />
-               </effect>
-            </Label>
-            <TextField fx:id="nombreTextField" prefHeight="31.0" prefWidth="150.0" promptText="Ingrese su nombre" GridPane.columnIndex="1">
-               <font>
-                  <Font name="OCR A Extended" size="15.0" />
-               </font>
-               <effect>
-                  <Blend mode="SOFT_LIGHT">
-                     <topInput>
-                        <Blend />
-                     </topInput>
-                  </Blend>
-               </effect>
-            </TextField>
-         </children>
-      </GridPane>
-      <AnchorPane layoutX="1.0" layoutY="335.0" prefHeight="192.0" prefWidth="810.0" style="-fx-background-size: cover; -fx-background-position: center;">
-         <children>
-            <Button fx:id="primaryButton" layoutX="363.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="42.0" prefWidth="119.0" text="EMPEZAR" textAlignment="CENTER" textFill="#4926f8">
-               <font>
-                  <Font name="OCR A Extended" size="15.0" />
-               </font>
-               <effect>
-                  <Bloom threshold="1.0" />
-               </effect>
-            </Button>
-         </children>
-      </AnchorPane>
+      <AnchorPane layoutX="1.0" layoutY="335.0" prefHeight="192.0" prefWidth="810.0" style="-fx-background-size: cover; -fx-background-position: center;" />
+      <ImageView fitHeight="566.0" fitWidth="983.0" layoutX="-93.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Fondo1-f.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="-16.0" prefHeight="175.0" prefWidth="479.0" text="BIENVENIDO A" textAlignment="CENTER">
+         <font>
+            <Font name="Britannic Bold" size="65.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.1" />
+         </effect>
+         <textFill>
+            <LinearGradient endX="0.8672985781990521" endY="0.8578199052132701" startX="0.8672985781990522" startY="0.26540284360189575">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.2368421107530594" green="0.1793859601020813" blue="0.09320175647735596" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="53.0" prefHeight="175.0" prefWidth="618.0" text="TORTUNEITOR!!" textAlignment="CENTER">
+         <font>
+            <Font name="Britannic Bold" size="70.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.1" />
+         </effect>
+         <textFill>
+            <LinearGradient endX="0.8672985781990521" endY="0.8578199052132701" startX="0.8672985781990522" startY="0.26540284360189575">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="primaryButton" blendMode="MULTIPLY" cache="true" layoutX="328.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="50.0" prefWidth="140.0" text="EMPEZAR" textAlignment="CENTER">
+         <font>
+            <Font name="OCR A Extended" size="22.0" />
+         </font>
+         <effect>
+            <Bloom threshold="1.0" />
+         </effect>
+         <textFill>
+            <LinearGradient endX="0.8672985781990521" endY="0.8578199052132701" startX="0.8672985781990522" startY="0.26540284360189575">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18039216101169586" blue="0.0941176488995552" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="268.0" prefHeight="34.0" prefWidth="129.0" text="NOMBRE:" wrapText="true">
+         <font>
+            <Font name="Candara Bold" size="25.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+         <textFill>
+            <LinearGradient endX="0.8672985781990521" endY="0.8578199052132701" startX="0.8672985781990522" startY="0.26540284360189575">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.2368421107530594" green="0.1793859601020813" blue="0.09320175647735596" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <TextField fx:id="nombreTextField" alignment="CENTER" blendMode="MULTIPLY" layoutX="267.0" layoutY="315.0" prefHeight="34.0" prefWidth="260.0" promptText="Ingrese su nombre...">
+         <font>
+            <Font name="Candara" size="18.0" />
+         </font>
+         <effect>
+            <Blend mode="SOFT_LIGHT">
+               <topInput>
+                  <Blend />
+               </topInput>
+            </Blend>
+         </effect>
+      </TextField>
+      <Label layoutX="212.0" layoutY="203.0" text="Hola! soy Tortu y soy el mejor adivino del mundo..." textFill="#0a0909">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="595.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Extra.png" />
+         </image>
+      </ImageView>
    </children>
    <effect>
       <Blend />

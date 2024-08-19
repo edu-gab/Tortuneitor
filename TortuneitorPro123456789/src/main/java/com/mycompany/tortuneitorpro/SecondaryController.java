@@ -30,7 +30,7 @@ public class SecondaryController {
     private Label fotoLabel;
 
     public void setSaludo(String nombre) {
-        saludoLabel.setText("Hola " + nombre + "! Bienvenid@");
+        saludoLabel.setText("Hola " + nombre + "!");
     }
 
     @FXML

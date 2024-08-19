@@ -2,18 +2,126 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Bloom?>
-<?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.SubirArchivosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.SubirArchivosController">
     <children>
-        <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#subirPreguntas" text="Subir Preguntas" />
-        <Button layoutX="50.0" layoutY="100.0" mnemonicParsing="false" onAction="#subirAnimales" text="Subir Animales" />
-        <Button layoutX="50.0" layoutY="150.0" mnemonicParsing="false" onAction="#continuar" text="Continuar" />
-        <Button layoutX="50.0" layoutY="200.0" mnemonicParsing="false" onAction="#regresar" text="Regresar" />
+      <ImageView fitHeight="621.0" fitWidth="953.0" layoutX="-14.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Fondo3-f.png" />
+         </image>
+      </ImageView>
+        <Button blendMode="MULTIPLY" layoutX="315.0" layoutY="182.0" mnemonicParsing="false" onAction="#subirPreguntas" prefHeight="45.0" prefWidth="212.0" text="SUBIR PREGUNTAS">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.862559241706161" endY="0.7819905213270142" startX="0.8625592417061612" startY="0.2985781990521328">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18039216101169586" blue="0.0941176488995552" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+        <Button blendMode="MULTIPLY" layoutX="321.0" layoutY="240.0" mnemonicParsing="false" onAction="#subirAnimales" prefHeight="45.0" prefWidth="196.0" text="SUBIR ANIMALES">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.862559241706161" endY="0.7819905213270142" startX="0.8625592417061612" startY="0.2985781990521328">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18039216101169586" blue="0.0941176488995552" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+        <Button layoutX="347.0" layoutY="336.0" mnemonicParsing="false" onAction="#continuar" prefHeight="45.0" prefWidth="135.0" text="CONTINUAR">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.862559241706161" endY="0.7819905213270142" startX="0.8625592417061612" startY="0.2985781990521328">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18039216101169586" blue="0.0941176488995552" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+        <Button layoutX="642.0" layoutY="459.0" mnemonicParsing="false" onAction="#regresar" prefHeight="45.0" prefWidth="123.0" text="REGRESAR">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.862559241706161" endY="0.7819905213270142" startX="0.8625592417061612" startY="0.2985781990521328">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18039216101169586" blue="0.0941176488995552" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <Label layoutX="235.0" layoutY="98.0" text="SUBIR ARCHIVOS .txt">
+         <font>
+            <Font name="Britannic Bold" size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.862559241706161" endY="0.7819905213270142" startX="0.8625592417061612" startY="0.2985781990521328">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18039216101169586" blue="0.0941176488995552" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fitHeight="187.0" fitWidth="149.0" layoutX="734.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Extra.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
