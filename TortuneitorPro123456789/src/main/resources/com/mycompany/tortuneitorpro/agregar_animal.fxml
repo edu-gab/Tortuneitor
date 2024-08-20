@@ -3,23 +3,116 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.AgregarAnimalController">
     <children>
-        <VBox alignment="CENTER" spacing="10.0">
-            <Label text="Agregar Nuevo Animal" />
-            <TextField fx:id="nombreAnimalTextField" promptText="Nombre del animal" />
-            <Label fx:id="preguntaLabel" text="Pregunta" />
-            <HBox alignment="CENTER" spacing="10.0">
-                <Button fx:id="siButton" text="Sí" onAction="#handleSi" />
-                <Button fx:id="noButton" text="No" onAction="#handleNo" />
-                <Button fx:id="regresarButton" text="Regresar" onAction="#handleRegresar" />
-                <Button fx:id="siguienteButton" text="Siguiente" onAction="#handleSiguiente" disable="true"/> <!-- Nuevo botón "Siguiente" -->
-            </HBox>
-            <Button text="Agregar" onAction="#handleAgregar" />
-        </VBox>
+      <ImageView fitHeight="676.0" fitWidth="943.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Fondo3-f.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="176.0" fitWidth="133.0" layoutX="735.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Extra.png" />
+         </image>
+      </ImageView>
+         <Label layoutX="283.0" layoutY="82.0" text="AGREGAR ANIMAL">
+         <font>
+            <Font name="Britannic Bold" size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8522727417223381" endY="0.7916666621511632" startX="0.8494318181818181" startY="0.37121209231289953">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3263157904148102" green="0.26346978545188904" blue="0.1812865436077118" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.010526316240429878" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+         <TextField fx:id="nombreAnimalTextField" alignment="CENTER" layoutX="322.0" layoutY="135.0" prefHeight="35.0" prefWidth="237.0" promptText="Nombre del animal..">
+         <font>
+            <Font name="Candara" size="18.0" />
+         </font>
+      </TextField>
+         <Label fx:id="preguntaLabel" layoutX="390.0" layoutY="183.0" text="Pregunta">
+         <font>
+            <Font name="Candara Bold" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8522727417223381" endY="0.7916666621511632" startX="0.8494318181818181" startY="0.37121209231289953">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3263157904148102" green="0.26346978545188904" blue="0.1812865436077118" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.010526316240429878" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+         <HBox alignment="CENTER" layoutX="372.0" layoutY="233.0" spacing="10.0">
+             <Button fx:id="siButton" onAction="#handleSi" text="Sí">
+            <font>
+               <Font name="OCR A Extended" size="20.0" />
+            </font>
+         </Button>
+             <Button fx:id="noButton" onAction="#handleNo" text="No">
+            <font>
+               <Font name="OCR A Extended" size="20.0" />
+            </font>
+         </Button> <!-- Nuevo botón "Siguiente" -->
+         </HBox>
+         <Button layoutX="369.0" layoutY="344.0" onAction="#handleAgregar" prefHeight="42.0" prefWidth="122.0" text="Agregar">
+         <font>
+            <Font name="OCR A Extended" size="22.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8522727417223381" endY="0.7916666621511632" startX="0.8494318181818181" startY="0.37121209231289953">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3263157904148102" green="0.26346978545188904" blue="0.1812865436077118" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.010526316240429878" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+          <Button fx:id="regresarButton" layoutX="437.0" layoutY="289.0" onAction="#handleRegresar" prefHeight="42.0" prefWidth="124.0" text="Regresar">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+      </Button>
+          <Button fx:id="siguienteButton" disable="true" layoutX="294.0" layoutY="289.0" onAction="#handleSiguiente" prefHeight="42.0" prefWidth="136.0" text="Siguiente">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
