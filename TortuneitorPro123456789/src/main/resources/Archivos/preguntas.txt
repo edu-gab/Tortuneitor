@@ -1,12 +1,9 @@
 ¿Tiene plumas?
-
-
 ¿Puede volar?
-
 ¿Es doméstico?
-
 ¿Vive en el agua?
-
-
-
 ¿Es un mamífero?
+¿Suelen tenerle miedo al agua?
+¿Ladra?
+¿Ruge?
+¿Es de sangre fria?

@@ -1,15 +1,10 @@
-aguila sí SI no no no
-perro no no si no si
-
-
-gato no no si no si 
-tigre no no no no si
-Cacatua Si no si no no
-
-
-rana no no no si no
-sada no si no no no
-
-
-Guido si no si no si
-animal1 no no si si si
+aguila sí Si no no no no no no no
+perro no no si no si no si no no
+gato no no si no si si no no no
+tigre no no no no si no no si no
+cacatua Si si si no no no no no no
+rana no no no si no no no no si
+elefante no no no no si no no no no 
+delfín no no no si si no no no no
+jirafa no no no no si no no no no
+pingüino si no no no si no no no no
