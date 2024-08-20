@@ -17,7 +17,7 @@
             <Image url="@../../../Imagenes/Fondo3-f.png" />
          </image>
       </ImageView>
-        <Button blendMode="MULTIPLY" layoutX="315.0" layoutY="182.0" mnemonicParsing="false" onAction="#subirPreguntas" prefHeight="45.0" prefWidth="212.0" text="SUBIR PREGUNTAS">
+        <Button blendMode="MULTIPLY" layoutX="310.0" layoutY="182.0" mnemonicParsing="false" onAction="#subirPreguntas" prefHeight="46.0" prefWidth="217.0" text="SUBIR PREGUNTAS">
          <font>
             <Font name="OCR A Extended" size="20.0" />
          </font>
@@ -37,7 +37,7 @@
                </stops>
             </LinearGradient>
          </textFill></Button>
-        <Button blendMode="MULTIPLY" layoutX="321.0" layoutY="240.0" mnemonicParsing="false" onAction="#subirAnimales" prefHeight="45.0" prefWidth="196.0" text="SUBIR ANIMALES">
+        <Button blendMode="MULTIPLY" layoutX="316.0" layoutY="239.0" mnemonicParsing="false" onAction="#subirAnimales" prefHeight="46.0" prefWidth="206.0" text="SUBIR ANIMALES">
          <font>
             <Font name="OCR A Extended" size="20.0" />
          </font>
@@ -57,7 +57,7 @@
                </stops>
             </LinearGradient>
          </textFill></Button>
-        <Button layoutX="347.0" layoutY="336.0" mnemonicParsing="false" onAction="#continuar" prefHeight="45.0" prefWidth="135.0" text="CONTINUAR">
+        <Button layoutX="346.0" layoutY="334.0" mnemonicParsing="false" onAction="#continuar" prefHeight="46.0" prefWidth="146.0" text="CONTINUAR">
          <font>
             <Font name="OCR A Extended" size="20.0" />
          </font>
@@ -77,7 +77,7 @@
                </stops>
             </LinearGradient>
          </textFill></Button>
-        <Button layoutX="642.0" layoutY="459.0" mnemonicParsing="false" onAction="#regresar" prefHeight="45.0" prefWidth="123.0" text="REGRESAR">
+        <Button layoutX="638.0" layoutY="459.0" mnemonicParsing="false" onAction="#regresar" prefHeight="46.0" prefWidth="138.0" text="REGRESAR">
          <font>
             <Font name="OCR A Extended" size="20.0" />
          </font>

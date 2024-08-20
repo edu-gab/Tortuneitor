@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.ImageView;
 
 public class ResultadosController {
 
@@ -40,6 +41,10 @@ public class ResultadosController {
 
     @FXML
     private Button agregarAnimalButton;
+    
+    @FXML
+    private ImageView triste;
+   
 
     private List<String> posiblesAnimales;
     private List<String> historialPreguntasRespuestas;
@@ -52,11 +57,13 @@ public class ResultadosController {
         historialListView.setItems(FXCollections.observableArrayList(historialPreguntasRespuestas));
 
         if (posiblesAnimales.isEmpty()) {
-            resultadoLabel.setText("Ninguno de los animales que tenemos coincide con las respuestas.");
+            resultadoLabel.setText("No contamos con ese animal.");
+            triste.setVisible(true);
             animalesListView.setVisible(false);
             agregarAnimalButton.setVisible(true);
         } else if (posiblesAnimales.size() == 1) {
             resultadoLabel.setText("El animal es: " + posiblesAnimales.get(0));
+            triste.setVisible(false);
             animalesListView.setVisible(false);
             agregarAnimalButton.setVisible(false);
         } else {
@@ -64,6 +71,7 @@ public class ResultadosController {
             animalesListView.setItems(FXCollections.observableArrayList(posiblesAnimales));
             animalesListView.setVisible(true);
             agregarAnimalButton.setVisible(false);
+            triste.setVisible(false);
         }
     }
 

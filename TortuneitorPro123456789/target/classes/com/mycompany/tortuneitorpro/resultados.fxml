@@ -3,29 +3,96 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.ResultadosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.mycompany.tortuneitorpro.ResultadosController">
     <children>
-        <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" spacing="15.0">
-            <Label fx:id="resultadoLabel" text="Resultados" wrapText="true" />
+      <ImageView fitHeight="543.0" fitWidth="959.0" layoutX="-80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/FONDOB.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="548.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Extra.png" />
+         </image>
+      </ImageView>
+        <VBox alignment="TOP_CENTER" layoutX="66.0" layoutY="138.0" spacing="15.0">
             
-            <!-- ListView para mostrar posibles animales -->
+                  <!-- ListView para mostrar posibles animales -->
             <ListView fx:id="animalesListView" prefHeight="150.0" prefWidth="300.0" visible="false" />
-
-            <!-- ListView para mostrar el historial de preguntas y respuestas -->
-            <Label text="Historial de preguntas:" wrapText="true" />
-            <ListView fx:id="historialListView" prefHeight="150.0" prefWidth="300.0" />
-
-            <!-- Botones -->
-            <HBox alignment="CENTER" spacing="10.0" layoutY="300.0">
-                <Button fx:id="finalizarButton" text="Finalizar" onAction="#finalizar" />
-                <Button fx:id="jugarDeNuevoButton" text="Jugar de Nuevo" onAction="#jugarDeNuevo" />
-                <Button fx:id="agregarAnimalButton" text="Agregar Nuevo Animal" onAction="#agregarNuevoAnimal" visible="false" />
-            </HBox>
         </VBox>
+
+         <!-- ListView para mostrar el historial de preguntas y respuestas -->
+         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="527.0" layoutY="105.0" text="Historial de preguntas:" wrapText="true">
+         <font>
+            <Font name="Candara Bold" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8409091342579235" endY="0.8787878769816775" startX="0.8418560606060604" startY="0.39772727272727276">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.21052631735801697" green="0.18557505309581757" blue="0.13567250967025757" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+         <ListView fx:id="historialListView" layoutX="475.0" layoutY="138.0" prefHeight="150.0" prefWidth="300.0" />
+         <Label fx:id="resultadoLabel" alignment="CENTER" layoutX="24.0" layoutY="105.0" prefHeight="26.0" prefWidth="366.0" text="Resultados" wrapText="true">
+         <font>
+            <Font name="Candara Bold" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8409091342579235" endY="0.8787878769816775" startX="0.8418560606060604" startY="0.39772727272727276">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.21052631735801697" green="0.18557505309581757" blue="0.13567250967025757" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+          <Button fx:id="jugarDeNuevoButton" layoutX="318.0" layoutY="304.0" onAction="#jugarDeNuevo" prefHeight="39.0" prefWidth="197.0" text="Jugar de Nuevo">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+      </Button>
+          <Button fx:id="finalizarButton" layoutX="349.0" layoutY="350.0" onAction="#finalizar" prefHeight="39.0" prefWidth="136.0" text="Finalizar">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+      </Button>
+          <Button fx:id="agregarAnimalButton" layoutX="326.0" layoutY="396.0" onAction="#agregarNuevoAnimal" prefHeight="46.0" prefWidth="179.0" text="Agregar Animal" visible="false">
+         <font>
+            <Font name="OCR A Extended" size="20.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="triste" fitHeight="206.0" fitWidth="157.0" layoutX="116.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/triste.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
-

@@ -2,20 +2,154 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?> 
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.GameController">
     <children>
-        <Label fx:id="preguntaLabel" layoutX="50.0" layoutY="50.0" prefHeight="60.0" prefWidth="400.0" text="Pregunta" wrapText="true" />
-        <HBox layoutX="50.0" layoutY="150.0" spacing="10">
-            <Button fx:id="siButton" text="Sí" onAction="#handleSi" />
-            <Button fx:id="noButton" text="No" onAction="#handleNo" />
-            <Button fx:id="regresarButton" text="Regresar" onAction="#handleRegresar" />
-        </HBox>
+      <ImageView fitHeight="548.0" fitWidth="941.0" layoutX="-66.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Fondo-j.png" />
+         </image>
+      </ImageView>
+        <Label fx:id="preguntaLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="192.0" layoutY="150.0" prefHeight="60.0" prefWidth="400.0" wrapText="true">
+         <font>
+            <Font name="Candara Bold" size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8181818470810399" endY="0.8143939312660332" startX="0.8219697123224086" startY="0.28787880232839874">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <effect>
+            <Bloom threshold="0.1" />
+         </effect></Label>
+        <HBox layoutX="50.0" layoutY="150.0" spacing="10" />
 
-        <Button fx:id="siguienteButton" layoutX="200.0" layoutY="250.0" mnemonicParsing="false" onAction="#siguientePregunta" text="Siguiente" />
+        <Button fx:id="siguienteButton" layoutX="318.0" layoutY="290.0" mnemonicParsing="false" onAction="#siguientePregunta" prefHeight="42.0" prefWidth="149.0" text="Siguiente">
+         <font>
+            <Font name="OCR A Extended" size="22.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8181818470810399" endY="0.8143939312660332" startX="0.8219697123224086" startY="0.28787880232839874">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+         <Button fx:id="regresarButton" layoutX="324.0" layoutY="342.0" onAction="#handleRegresar" prefHeight="42.0" prefWidth="135.0" text="Regresar">
+         <font>
+            <Font name="OCR A Extended" size="22.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8181818470810399" endY="0.8143939312660332" startX="0.8219697123224086" startY="0.28787880232839874">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+         <Button fx:id="noButton" layoutX="405.0" layoutY="229.0" onAction="#handleNo" text="No">
+         <font>
+            <Font name="OCR A Extended" size="22.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8181818470810399" endY="0.8143939312660332" startX="0.8219697123224086" startY="0.28787880232839874">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+         <Button fx:id="siButton" layoutX="321.0" layoutY="229.0" onAction="#handleSi" text="Sí">
+         <font>
+            <Font name="OCR A Extended" size="22.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8181818470810399" endY="0.8143939312660332" startX="0.8219697123224086" startY="0.28787880232839874">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="288.0" layoutY="97.0" text="PREGUNTAS">
+         <font>
+            <Font name="Britannic Bold" size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8181818470810399" endY="0.8143939312660332" startX="0.8219697123224086" startY="0.28787880232839874">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <effect>
+            <Bloom threshold="0.09" />
+         </effect>
+      </Label>
     </children>
 </AnchorPane>
-

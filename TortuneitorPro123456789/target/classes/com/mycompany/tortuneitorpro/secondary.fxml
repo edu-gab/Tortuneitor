@@ -68,7 +68,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button alignment="CENTER" blendMode="MULTIPLY" layoutX="334.0" layoutY="318.0" mnemonicParsing="false" onAction="#jugar" prefHeight="51.0" prefWidth="145.0" text="JUGAR" textAlignment="CENTER">
+      <Button alignment="CENTER" layoutX="334.0" layoutY="318.0" mnemonicParsing="false" onAction="#jugar" prefHeight="51.0" prefWidth="145.0" text="JUGAR" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="20.0" />
          </font>
@@ -89,7 +89,7 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <Button blendMode="MULTIPLY" layoutX="296.0" layoutY="381.0" mnemonicParsing="false" onAction="#subirArchivo" prefHeight="51.0" prefWidth="221.0" text="SUBIR ARCHIVOS" textAlignment="CENTER">
+      <Button layoutX="296.0" layoutY="381.0" mnemonicParsing="false" onAction="#subirArchivo" prefHeight="51.0" prefWidth="221.0" text="SUBIR ARCHIVOS" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="20.0" />
          </font>

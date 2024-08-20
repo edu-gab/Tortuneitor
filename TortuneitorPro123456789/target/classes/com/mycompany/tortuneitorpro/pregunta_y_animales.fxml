@@ -4,29 +4,118 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="227.0" prefWidth="521.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.mycompany.tortuneitorpro.PreguntaYAnimalesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.PreguntaYAnimalesController">
     <children>
-        <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" spacing="15.0"> <!-- Ajustado el espaciado -->
-            <Label fx:id="rangoPreguntasLabel" text="Ingrese la cantidad de preguntas:" wrapText="true" /> <!-- Añadido wrapText para que el texto se ajuste -->
-            <TextField fx:id="numeroPreguntasTextField" prefWidth="250.0" /> <!-- Definido un ancho preferido para evitar que sea demasiado estrecho -->
+      <ImageView fitHeight="535.0" fitWidth="944.0" layoutX="-77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/Fondo4-f.png" />
+         </image>
+      </ImageView>
+        <VBox alignment="TOP_CENTER" layoutX="53.0" layoutY="186.0" spacing="15.0"> <!-- Ajustado el espaciado -->
+            <Label fx:id="rangoPreguntasLabel" alignment="CENTER" contentDisplay="CENTER" text="Ingrese la cantidad de preguntas:" wrapText="true">
+            <font>
+               <Font name="Candara Bold" size="20.0" />
+            </font>
+            <textFill>
+               <LinearGradient endX="0.8219697403185295" endY="0.8333333387519374" startX="0.8219697123224086" startY="0.21969694079774799">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.23529411852359772" green="0.18431372940540314" blue="0.10196078568696976" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill>
+            <effect>
+               <Bloom threshold="0.13" />
+            </effect></Label> <!-- Añadido wrapText para que el texto se ajuste -->
+            <TextField fx:id="numeroPreguntasTextField" alignment="CENTER" prefWidth="250.0" promptText="Ingrese un numero...">
+            <font>
+               <Font name="Candara" size="18.0" />
+            </font></TextField> <!-- Definido un ancho preferido para evitar que sea demasiado estrecho -->
             <HBox alignment="CENTER" spacing="15.0"> <!-- Ajustado el espaciado entre botones -->
-                <Button onAction="#confirmar" text="Confirmar" />
-                <Button onAction="#cancelar" text="Cancelar" />
+                <Button onAction="#confirmar" prefHeight="47.0" prefWidth="136.0" text="Confirmar">
+               <font>
+                  <Font name="OCR A Extended" size="20.0" />
+               </font></Button>
+                <Button onAction="#cancelar" prefHeight="46.0" prefWidth="124.0" text="Cancelar">
+               <font>
+                  <Font name="OCR A Extended" size="20.0" />
+               </font></Button>
             </HBox>
         </VBox>
-      <VBox layoutX="282.0" layoutY="14.0" prefHeight="200.0" prefWidth="219.0">
+      <VBox layoutX="504.0" layoutY="168.0" prefHeight="200.0" prefWidth="219.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="220.0" text="Lista de animales:" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="220.0" text="Lista de animales:" textAlignment="CENTER">
+               <font>
+                  <Font name="Candara Bold" size="20.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.14" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="0.8409090620098691" endY="0.8863636363636364" startX="0.8409090611067686" startY="0.4053030230782249">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5052631497383118" green="0.40514621138572693" blue="0.3050292432308197" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
               
-              <!-- ListView para mostrar la lista de animales con scroll -->
+                    <!-- ListView para mostrar la lista de animales con scroll -->
               
-              <ListView fx:id="animalesListView" prefHeight="197.0" prefWidth="219.0" />
+                    <ListView fx:id="animalesListView" prefHeight="197.0" prefWidth="219.0" />
          </children>
       </VBox>
+      <Label layoutX="186.0" layoutY="94.0" prefHeight="42.0" prefWidth="437.0" text="AHORA SI EMPECEMOS...">
+         <font>
+            <Font name="Britannic Bold" size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.862559241706161" endY="0.6266874585123594" startX="0.8625592417061612" startY="0.2985781990521328">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <effect>
+            <Bloom threshold="0.22" />
+         </effect>
+      </Label>
         
     </children>
 </AnchorPane>
