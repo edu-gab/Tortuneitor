@@ -119,7 +119,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TextField fx:id="nombreTextField" alignment="CENTER" layoutX="267.0" layoutY="315.0" prefHeight="34.0" prefWidth="260.0" promptText="Ingrese su nombre...">
+      <TextField fx:id="nombreTextField" alignment="CENTER" layoutX="267.0" layoutY="315.0" prefHeight="34.0" prefWidth="260.0" promptText="Ingrese tu nombre...">
          <font>
             <Font name="Candara" size="18.0" />
          </font>
@@ -145,6 +145,14 @@
             <Image url="@../../../Imagenes/Extra.png" />
          </image>
       </ImageView>
+      <Label layoutX="284.0" layoutY="228.0" text="Asi que  piensa en un animal..." textFill="#0a0909">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Label>
    </children>
    <effect>
       <Blend />

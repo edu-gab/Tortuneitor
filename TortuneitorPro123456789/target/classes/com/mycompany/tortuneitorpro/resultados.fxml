@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.mycompany.tortuneitorpro.ResultadosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tortuneitorpro.ResultadosController">
     <children>
       <ImageView fitHeight="543.0" fitWidth="959.0" layoutX="-80.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -92,6 +92,11 @@
       <ImageView fx:id="triste" fitHeight="206.0" fitWidth="157.0" layoutX="116.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Imagenes/triste.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="feliz" fitHeight="206.0" fitWidth="166.0" layoutX="126.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imagenes/feliz.png" />
          </image>
       </ImageView>
     </children>

@@ -44,6 +44,9 @@ public class ResultadosController {
     
     @FXML
     private ImageView triste;
+    
+    @FXML
+    private ImageView feliz;
    
 
     private List<String> posiblesAnimales;
@@ -59,11 +62,13 @@ public class ResultadosController {
         if (posiblesAnimales.isEmpty()) {
             resultadoLabel.setText("No contamos con ese animal.");
             triste.setVisible(true);
+            feliz.setVisible(false);
             animalesListView.setVisible(false);
             agregarAnimalButton.setVisible(true);
         } else if (posiblesAnimales.size() == 1) {
             resultadoLabel.setText("El animal es: " + posiblesAnimales.get(0));
             triste.setVisible(false);
+            feliz.setVisible(true);
             animalesListView.setVisible(false);
             agregarAnimalButton.setVisible(false);
         } else {
@@ -72,6 +77,7 @@ public class ResultadosController {
             animalesListView.setVisible(true);
             agregarAnimalButton.setVisible(false);
             triste.setVisible(false);
+            feliz.setVisible(false);
         }
     }
 
